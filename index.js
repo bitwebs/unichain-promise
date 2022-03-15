@@ -1,17 +1,17 @@
 const { callbackMethods, cancelableMethods } = require('./methods')
 
-const kHypercore = Symbol('hypercore')
+const kUnichain = Symbol('@web4/unichain')
 const kValue = Symbol('value')
 
 const getValue = value => value && typeof value === 'object' ? value[kValue] : null
 
-class HypercorePromise {
+class UnichainPromise {
   constructor (...args) {
     let feed
     if (args.length === 1 && args[0].get && args[0].append) {
       feed = args[0]
     } else {
-      feed = require('hypercore')(...args)
+      feed = require('unichain')(...args)
     }
 
     this._cache = {}
@@ -20,7 +20,7 @@ class HypercorePromise {
   }
 
   get (target, propKey) {
-    if (propKey === kHypercore) return target
+    if (propKey === kUnichain) return target
 
     const value = Reflect.get(target, propKey)
     if (typeof value === 'function') return this._getMethod(target, propKey, value)
@@ -77,7 +77,7 @@ class HypercorePromise {
   }
 }
 
-module.exports = (...args) => new HypercorePromise(...args)
-module.exports.HypercorePromise = HypercorePromise
-module.exports.getHypercore = hypercorePromise => hypercorePromise[kHypercore]
+module.exports = (...args) => new UnichainPromise(...args)
+module.exports.UnichainPromise = UnichainPromise
+module.exports.getUnichain = unichainPromise => unichainPromise[kUnichain]
 module.exports.getValue = getValue

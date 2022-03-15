@@ -1,7 +1,7 @@
 {
-  "name": "@geut/hypercore-promise",
-  "version": "2.1.1",
-  "description": "An async/await based wrapper for hypercore (v8+)",
+  "name": "@web4/unichain-promise",
+  "version": "1.0.0",
+  "description": "An async/await based wrapper for unichain (v8+)",
   "main": "index.js",
   "files": [
     "lib",
@@ -14,11 +14,10 @@
     "test": "tape tests/*.js",
     "posttest": "npm run lint",
     "lint": "standard",
-    "version": "chan release --allow-yanked ${npm_package_version} && git add .",
-    "prepublishOnly": "npm test"
+    "version": "chan release --allow-yanked ${npm_package_version} && git add ."
   },
   "dependencies": {
-    "hypercore": "^9.0.0"
+    "@web4/unichain": "^1.0.0"
   },
   "devDependencies": {
     "@geut/chan": "^2.2.1",
@@ -37,11 +36,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geut/hypercore-promise.git"
+    "url": "git+https://github.com/bitwebs/unichain-promise.git"
   },
   "keywords": [
-    "dat",
-    "hypercore",
+    "bit",
+    "unichain",
     "p2p",
     "async-await",
     "promises"
@@ -52,9 +51,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/geut/hypercore-promise/issues"
+    "url": "https://github.com/bitwebs/unichain-promise/issues"
   },
-  "homepage": "https://github.com/geut/hypercore-promise#readme",
+  "homepage": "https://github.com/bitwebs/unichain-promise#readme",
   "publishConfig": {
     "access": "public"
   }
